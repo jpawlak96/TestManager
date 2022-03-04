@@ -1,4 +1,4 @@
-package com.example.TestManager;
+package com.example.manager;
 
 import lombok.Data;
 

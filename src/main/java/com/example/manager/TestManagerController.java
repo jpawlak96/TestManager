@@ -1,4 +1,4 @@
-package com.example.TestManager;
+package com.example.manager;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,19 +17,19 @@ public class TestManagerController {
 
     @GetMapping
     public List<TestDto> getAll() {
-        log.info("getAll();");
+        log.debug("getAll();");
         return service.findAll();
     }
 
     @PostMapping
     public TestDto save(@Valid @RequestBody TestDto dto) {
-        log.info("save(); {}", dto);
+        log.debug("save(); {}", dto);
         return service.save(dto);
     }
 
     @PostMapping(path = "{id}")
     public TestDto updateStatusById(@PathVariable Long id, @RequestParam TestStatus newStatus) {
-        log.info("updateStatusById(); id: {}, newStatus: {}", id, newStatus);
+        log.debug("updateStatusById(); id: {}, newStatus: {}", id, newStatus);
         return service.updateStatusById(id, newStatus);
     }
 }

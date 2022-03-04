@@ -1,4 +1,4 @@
-package com.example.TestManager;
+package com.example.manager;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
