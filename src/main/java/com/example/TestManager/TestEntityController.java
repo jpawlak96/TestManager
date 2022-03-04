@@ -1,9 +1,7 @@
 package com.example.TestManager;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -12,16 +10,15 @@ import java.util.List;
 @RequestMapping(path = "/api")
 public class TestEntityController {
 
-    private final TestEntityRepository repository;
+    private final TestEntityService service;
 
     @GetMapping
     public List<TestEntity> getAll() {
-        return repository.findAll();
+        return service.findAll();
     }
 
-    @GetMapping(path = "{id}")
-    public TestEntity getById(@PathVariable Long id) {
-        return repository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+    @PostMapping(path = "{id}")
+    public TestEntity updateById(@PathVariable Long id, @RequestParam TestStatus newStatus) {
+        return service.updateById(id, newStatus);
     }
 }
