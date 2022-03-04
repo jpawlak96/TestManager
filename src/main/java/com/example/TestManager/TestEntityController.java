@@ -17,6 +17,11 @@ public class TestEntityController {
         return service.findAll();
     }
 
+    @PostMapping
+    public TestEntity save(TestEntity entity) {
+        return service.save(entity);
+    }
+
     @PostMapping(path = "{id}")
     public TestEntity updateById(@PathVariable Long id, @RequestParam TestStatus newStatus) {
         return service.updateById(id, newStatus);

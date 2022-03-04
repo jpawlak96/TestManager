@@ -17,11 +17,14 @@ public class TestEntityService {
         return repository.findAll();
     }
 
+    public TestEntity save(TestEntity entity) {
+        return repository.save(entity);
+    }
+
     public TestEntity updateById(Long id, TestStatus newStatus) {
         TestEntity target = repository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         target.setStatus(newStatus);
-        repository.save(target);
-        return target;
+        return repository.save(target);
     }
 }

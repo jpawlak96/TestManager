@@ -14,6 +14,7 @@ public class TestEntity {
     public static final String TABLE_NAME = "TESTS";
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
