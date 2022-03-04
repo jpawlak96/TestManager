@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class TestEntityService {
+public class TestManagerService {
 
     private final TestEntityRepository repository;
     private final TestEntityMapper mapper;
@@ -28,7 +28,7 @@ public class TestEntityService {
         return mapper.toDto(savedEntity);
     }
 
-    public TestDto updateById(Long id, TestStatus newStatus) {
+    public TestDto updateStatusById(Long id, TestStatus newStatus) {
         TestEntity target = repository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         target.setStatus(newStatus);

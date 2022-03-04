@@ -2,19 +2,18 @@ package com.example.TestManager;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Slf4j
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(path = "/api")
-public class TestEntityController {
+public class TestManagerController {
 
-    private final TestEntityService service;
+    private final TestManagerService service;
 
     @GetMapping
     public List<TestDto> getAll() {
@@ -23,17 +22,14 @@ public class TestEntityController {
     }
 
     @PostMapping
-    public TestDto save(@Valid TestDto dto) {
+    public TestDto save(@Valid @RequestBody TestDto dto) {
         log.info("save(); {}", dto);
-        if (dto.getId() != null) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
-        }
         return service.save(dto);
     }
 
     @PostMapping(path = "{id}")
-    public TestDto updateById(@PathVariable Long id, @RequestParam TestStatus newStatus) {
-        log.info("updateById(); id: {}, newStatus: {}", id, newStatus);
-        return service.updateById(id, newStatus);
+    public TestDto updateStatusById(@PathVariable Long id, @RequestParam TestStatus newStatus) {
+        log.info("updateStatusById(); id: {}, newStatus: {}", id, newStatus);
+        return service.updateStatusById(id, newStatus);
     }
 }
