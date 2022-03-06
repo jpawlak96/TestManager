@@ -1,17 +1,17 @@
-#Test manager
+# Test manager
 https://test-manager-heroku.herokuapp.com
 
-##Aims
+## Aims
 * Create a basic test manager application
 * Be able to make a local demo to the dev team
 * Show the code, explain it as well as the difficulties and the choices made
 
-##Technical stack
+## Technical stack
 * Backend side: Java stack with Spring or SpringBoot. Ideally, data persistence in a light database
 * Frontend side: React
 * Store the code repository on git
 
-##Specification
+## Specification
 Create a test manager, just one page that allows to:
 * Display the test names
 * Create a new test
