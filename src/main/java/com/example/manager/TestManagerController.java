@@ -8,9 +8,9 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Slf4j
-@CrossOrigin
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin(origins = {"*"})
 @RequestMapping(path = "/api")
 public class TestManagerController {
 
