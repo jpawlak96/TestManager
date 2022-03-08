@@ -27,9 +27,9 @@ public class TestManagerController {
         return service.save(dto);
     }
 
-    @PostMapping(path = "{id}")
-    public TestDto updateStatusById(@PathVariable Long id, @RequestParam TestStatus newStatus) {
-        log.debug("updateStatusById(); id: {}, newStatus: {}", id, newStatus);
-        return service.updateStatusById(id, newStatus);
+    @PutMapping(path = "{id}")
+    public TestDto updateStatusById(@PathVariable Long id, @RequestBody TestDto dto) {
+        log.debug("updateStatusById(); id: {}, newStatus: {}", id, dto.getStatus());
+        return service.updateStatusById(id, dto.getStatus());
     }
 }

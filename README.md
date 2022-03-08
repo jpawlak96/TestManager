@@ -24,6 +24,7 @@ Create a test manager, just one page that allows to:
 
 Build image by Dockerfile
 ```bash
+$ ./mvnw package
 $ docker build -t test-manager:latest .
 ```
 

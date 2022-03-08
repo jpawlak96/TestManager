@@ -11,6 +11,9 @@ spring:
   h2:
     console:
       enabled: true
+      settings:
+        web-allow-others: true
+        web-admin-password: dbadmin
   jpa:
     show-sql: true
 logging:
