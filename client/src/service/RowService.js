@@ -1,6 +1,5 @@
 import axios from "axios";
-
-const API_URL = window.location.href + "api";
+import { API_URL } from "../Constants";
 
 class RowService {
   getAllRows() {
