@@ -71,7 +71,7 @@ class TestManagerServiceTest {
     void shouldUpdateStatusById() {
         // given
         var id = 1L;
-        var newStatus = TestStatus.UNDEFINDED;
+        var newStatus = TestStatus.UNDEFINED;
         var targetEntity = new TestEntity();
         var resultEntity = new TestEntity();
         var resultDto = new TestDto();
@@ -92,7 +92,7 @@ class TestManagerServiceTest {
     void shouldThrownNotFoundExceptionOnWrongId() {
         // given
         var id = 1L;
-        var newStatus = TestStatus.UNDEFINDED;
+        var newStatus = TestStatus.UNDEFINED;
 
         when(repository.findById(id)).thenReturn(Optional.empty());
 

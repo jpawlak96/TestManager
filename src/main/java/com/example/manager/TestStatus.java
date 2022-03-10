@@ -1,7 +1,7 @@
 package com.example.manager;
 
 public enum TestStatus {
-    UNDEFINDED,
+    UNDEFINED,
     FAILED,
     PASSED
 }
