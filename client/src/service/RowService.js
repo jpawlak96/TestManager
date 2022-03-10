@@ -2,15 +2,15 @@ import axios from "axios";
 import { API_URL } from "../Constants";
 
 class RowService {
-  getAllRows() {
+  getAll() {
     return axios.get(`${API_URL}`);
   }
 
-  createRow(row) {
+  create(row) {
     return axios.post(`${API_URL}`, row);
   }
 
-  updateRow(row) {
+  update(row) {
     return axios.put(`${API_URL}/${row.id}`, row);
   }
 }
