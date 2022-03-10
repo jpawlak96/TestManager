@@ -1,9 +1,9 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState, useEffect } from "react";
 import { Navbar, NavbarBrand } from "reactstrap";
-import AddRow from "./component/AddRow";
 import RowList from "./component/RowList";
 import RowService from "./service/RowService";
+import SaveModal from "./component/SaveModal";
 
 const App = () => {
   const [content, setContent] = useState([]);
@@ -14,9 +14,12 @@ const App = () => {
       .catch((error) => console.log(error));
   }, []);
 
-  const handleAddRow = (row) => {
+  const handleRowAdd = (row, onSuccess) => {
     RowService.create(row)
-      .then((res) => setContent([...content, res.data]))
+      .then((res) => {
+        setContent([...content, res.data]);
+        onSuccess();
+      })
       .catch((error) => console.log(error));
   };
 
@@ -35,7 +38,7 @@ const App = () => {
     <div className="container">
       <Navbar color="light" light fixed="top">
         <NavbarBrand>Test manager</NavbarBrand>
-        <AddRow onAdd={handleAddRow} />
+        <SaveModal onSave={handleRowAdd} />
       </Navbar>
       <RowList rows={content} onRowChange={handleRowChange} />
     </div>
