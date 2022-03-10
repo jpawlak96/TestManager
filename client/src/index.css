@@ -6,11 +6,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
+.container {
   padding-top: 80px;
 }
 @media screen and (max-width: 768px) {
-  body {
+  .container {
     padding-top: 100px;
   }
+}
+
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 9999;
 }
