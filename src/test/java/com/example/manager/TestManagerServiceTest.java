@@ -32,7 +32,7 @@ class TestManagerServiceTest {
         // given
         var entity = new TestEntity();
         var entities = List.of(entity);
-        var dto = new TestDto();
+        var dto = TestDto.builder().build();
 
         when(repository.findAll()).thenReturn(entities);
         when(mapper.toDto(entity)).thenReturn(dto);
@@ -50,10 +50,10 @@ class TestManagerServiceTest {
     @Test
     void shouldSave() {
         // given
-        var sourceDto = new TestDto();
+        var sourceDto = TestDto.builder().build();
         var sourceEntity = new TestEntity();
         var resultEntity = new TestEntity();
-        var resultDto = new TestDto();
+        var resultDto = TestDto.builder().build();
 
         when(mapper.toEntity(sourceDto)).thenReturn(sourceEntity);
         when(repository.save(sourceEntity)).thenReturn(resultEntity);
@@ -74,7 +74,7 @@ class TestManagerServiceTest {
         var newStatus = TestStatus.UNDEFINED;
         var targetEntity = new TestEntity();
         var resultEntity = new TestEntity();
-        var resultDto = new TestDto();
+        var resultDto = TestDto.builder().build();
 
         when(repository.findById(id)).thenReturn(Optional.of(targetEntity));
         when(repository.save(targetEntity)).thenReturn(resultEntity);
